@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Registro de Horario</title>
+  <title>Admin - Fichajes</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="admin-container">
-    <h2>Registro de Horario - Admin</h2>
-    <button onclick="loadData('diario')">Ver Diario</button>
-    <button onclick="loadData('semanal')">Ver Semanal</button>
-    <button onclick="loadData('mensual')">Ver Mensual</button>
-    <table id="fichajes-table">
-      <thead>
-        <tr>
-          <th>Usuario</th>
-          <th>Acción</th>
-          <th>Fecha y Hora</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+  <h1>Fichajes</h1>
+  <button onclick="loadData('diario')">Ver Fichajes Diarios</button>
+  <button onclick="loadData('semanal')">Ver Fichajes Semanales</button>
+  <button onclick="loadData('mensual')">Ver Fichajes Mensuales</button>
+
+  <table id="fichajes-table">
+    <thead>
+      <tr>
+        <th>Empleado</th>
+        <th>Acción</th>
+        <th>Fecha y Hora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Los datos de los fichajes se llenarán aquí -->
+    </tbody>
+  </table>
+
   <script src="admin.js"></script>
 </body>
 </html>

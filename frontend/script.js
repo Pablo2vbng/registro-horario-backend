@@ -7,7 +7,8 @@ loginForm.addEventListener('submit', async (event) => {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  const response = await fetch('https://tu-servidor.onrender.com/login', {
+  // Asegúrate de que esta URL sea la de tu servicio en Render
+  const response = await fetch('https://mi-servicio.onrender.com/login', { // Cambia esto por la URL correcta de tu backend en Render
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
