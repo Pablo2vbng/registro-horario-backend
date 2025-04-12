@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Fichajes</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Administración - Registro de Horario</title>
 </head>
 <body>
-  <h1>Fichajes</h1>
+  <h2>Bienvenido a la administración</h2>
   <button onclick="loadData('diario')">Ver Fichajes Diarios</button>
   <button onclick="loadData('semanal')">Ver Fichajes Semanales</button>
   <button onclick="loadData('mensual')">Ver Fichajes Mensuales</button>
 
-  <table id="fichajes-table">
+  <table>
     <thead>
       <tr>
         <th>Empleado</th>
@@ -20,8 +19,8 @@
         <th>Fecha y Hora</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Los datos de los fichajes se llenarán aquí -->
+    <tbody id="fichajes-table">
+      <!-- Fichajes serán cargados aquí -->
     </tbody>
   </table>
 
