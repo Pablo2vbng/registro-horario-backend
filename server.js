@@ -17,12 +17,12 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Ruta para el archivo principal de la aplicación (index.html)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'Index.html'));
 });
 
 // Redirigir todas las demás rutas a index.html (para aplicaciones SPA)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'Index.html'));
 });
 
 // Iniciar el servidor
