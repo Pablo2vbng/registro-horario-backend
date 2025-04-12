@@ -8,7 +8,7 @@ loginForm.addEventListener('submit', async (event) => {
   const password = document.getElementById('password').value;
 
   // Cambia esta URL a la URL de tu servidor en Render
-  const response = await fetch('https://registro-horario-backend-1.onrender.com', {
+  const response = await fetch('https://registro-horario-backend-1.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -1,39 +1,25 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const app = express();
 
-// Middleware para procesar las solicitudes JSON
-app.use(bodyParser.json());
-
-// Servir archivos estáticos (es decir, el frontend) desde la carpeta 'frontend'
+// Servir archivos estáticos desde la carpeta 'frontend'
 app.use(express.static(path.join(__dirname, 'frontend')));
 
-// Ruta para el login
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-
-  // Aquí puedes agregar la lógica para verificar el usuario y contraseña en la base de datos.
-  // Para efectos de prueba, vamos a usar datos estáticos:
-  if (username === 'admin' && password === 'admin123') {
-    res.json({ message: 'Login exitoso' });
-  } else {
-    res.status(400).json({ message: 'Usuario o contraseña incorrectos' });
-  }
-});
-
-// Ruta para servir el archivo index.html cuando se accede a la raíz (home)
+// Redirigir la ruta raíz a 'frontend/index.html'
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-// Manejo de errores para rutas no encontradas
-app.get('*', (req, res) => {
-  res.status(404).send('Página no encontrada');
+// Redirigir otras rutas, si es necesario
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'admin.html'));
 });
 
-// Iniciar el servidor en el puerto adecuado
-const port = process.env.PORT || 10000;
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+app.get('/empleado', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'empleado.html'));
+});
+
+// Escuchar en el puerto 10000 (o el puerto que elijas)
+app.listen(10000, () => {
+  console.log('Servidor corriendo en el puerto 10000');
 });
