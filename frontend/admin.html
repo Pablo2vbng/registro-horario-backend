@@ -3,36 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Registros</title>
+  <title>Admin - Registro de Horario</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Registros de Entrada y Salida</h1>
-    
-    <div>
-      <button id="diaButton">Hoy</button>
-      <button id="semanaButton">Semana</button>
-      <button id="mesButton">Mes</button>
-    </div>
-
-    <div id="registros">
-      <h3>Registros:</h3>
-      <table id="registrosTable">
-        <thead>
-          <tr>
-            <th>Usuario</th>
-            <th>Fecha de Entrada</th>
-            <th>Fecha de Salida</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí se insertarán los registros -->
-        </tbody>
-      </table>
-    </div>
+  <div class="admin-container">
+    <h2>Registro de Horario - Admin</h2>
+    <button onclick="loadData('diario')">Ver Diario</button>
+    <button onclick="loadData('semanal')">Ver Semanal</button>
+    <button onclick="loadData('mensual')">Ver Mensual</button>
+    <table id="fichajes-table">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Acción</th>
+          <th>Fecha y Hora</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
-
   <script src="admin.js"></script>
 </body>
 </html>

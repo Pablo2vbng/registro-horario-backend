@@ -1,50 +1,25 @@
-// URL de la API en Render
-const API_URL = 'https://registro-horario-backend.onrender.com/login';
+const loginForm = document.getElementById('login-form');
+const errorMessage = document.getElementById('error-message');
 
-// Selección de elementos del DOM
-const loginForm = document.getElementById('loginForm');
-const usuarioInput = document.getElementById('usuario');
-const passwordInput = document.getElementById('password');
-const errorMessage = document.getElementById('errorMessage');
+loginForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-// Función para manejar el inicio de sesión
-loginForm.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-  // Obtener valores del formulario
-  const usuario = usuarioInput.value;
-  const password = passwordInput.value;
+  const response = await fetch('https://tu-servidor.onrender.com/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, password })
+  });
 
-  // Enviar la solicitud al backend
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ usuario, password })
-    });
+  const result = await response.json();
 
-    const data = await response.json();
-
-    if (data.success) {
-      // Redirigir al admin o trabajador
-      if (data.usuario.usuario === 'Pablo2vbng') {
-        alert('Bienvenido, Admin');
-        // Redirige a la vista del admin
-        window.location.href = '/admin.html'; 
-      } else {
-        alert('Bienvenido, ' + data.usuario.usuario);
-        // Redirigir al trabajador a la página de fichaje
-        window.location.href = '/fichaje.html';
-      }
-    } else {
-      // Mostrar mensaje de error
-      errorMessage.style.display = 'block';
-    }
-  } catch (error) {
-    console.error('Error al iniciar sesión:', error);
-    errorMessage.textContent = 'Hubo un problema con la conexión. Intenta de nuevo.';
-    errorMessage.style.display = 'block';
+  if (response.ok) {
+    window.location.href = 'admin.html'; // Redirige al admin
+  } else {
+    errorMessage.textContent = result.message;
   }
 });
