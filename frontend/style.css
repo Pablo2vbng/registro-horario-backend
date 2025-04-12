@@ -58,4 +58,8 @@ body {
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
+  .logo {
+    width: 200px; /* Ajusta según el tamaño de tu logo */
+    height: auto;
+}
   
