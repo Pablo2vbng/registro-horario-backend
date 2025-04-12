@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Panel de Administración</h1>
+        
+        <h2>Agregar Nuevo Empleado</h2>
+        <form id="addEmployeeForm" class="registro-form">
+            <div class="form-group">
+                <label for="empName">Nombre:</label>
+                <input type="text" id="empName" required>
+            </div>
+            <div class="form-group">
+                <label for="empUser">Usuario:</label>
+                <input type="text" id="empUser" required>
+            </div>
+            <div class="form-group">
+                <label for="empPass">Contraseña:</label>
+                <input type="password" id="empPass" required>
+            </div>
+            <button type="submit">Agregar Empleado</button>
+        </form>
+        
+        <h2>Lista de Empleados</h2>
+        <div id="employeesList" class="registros-list">
+            <!-- Los empleados se cargarán aquí -->
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
