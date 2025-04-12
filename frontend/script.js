@@ -7,8 +7,8 @@ loginForm.addEventListener('submit', async (event) => {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  // URL del backend en Render
-  const response = await fetch('https://mi-servidor.onrender.com/login', {  // Reemplaza por tu URL de Render
+  // Cambia esta URL a la URL de tu servidor en Render
+  const response = await fetch('https://registro-horario-backend-1.onrender.com', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -19,8 +19,8 @@ loginForm.addEventListener('submit', async (event) => {
   const result = await response.json();
 
   if (response.ok) {
-    window.location.href = 'admin.html'; // Redirige al admin si el login es exitoso
+    window.location.href = 'admin.html';  // Redirige al admin
   } else {
-    errorMessage.textContent = result.message; // Muestra el mensaje de error si las credenciales son incorrectas
+    errorMessage.textContent = result.message;
   }
 });
