@@ -1,25 +1,32 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 10000; // Puerto predeterminado
 
-// Middleware para servir archivos estáticos desde la carpeta 'frontend'
+// Conexión a la base de datos MongoDB (reemplaza con tu URI)
+mongoose.connect('mongodb://localhost:27017/registro_horario', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Conectado a la base de datos');
+  })
+  .catch(err => {
+    console.log('Error al conectar a la base de datos:', err);
+  });
+
+// Servir archivos estáticos desde la carpeta 'frontend/'
 app.use(express.static(path.join(__dirname, 'frontend')));
 
-// En caso de que la URL no coincida con ningún archivo estático, se sirve el archivo index.html
+// Ruta principal para servir el index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});
+
+// Ruta para cualquier otro archivo estático que exista en 'frontend/'
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-// Conexión a la base de datos (esto es un ejemplo, ajusta según tu base de datos)
-const mongoose = require('mongoose');
-const dbURI = 'mongodb://localhost:27017/miBaseDeDatos'; // Cambia por tu URI de base de datos
-
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Conectado a la base de datos'))
-  .catch((error) => console.log('Error de conexión a la base de datos:', error));
-
-// Inicia el servidor
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+// Iniciar el servidor
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
