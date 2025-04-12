@@ -4,11 +4,109 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Registro de Horario</title>
-  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Contenedor de bienvenida */
+    .welcome-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* Estilo de la imagen (logo) */
+    .logo {
+      max-width: 100%; /* Hace que la imagen sea responsive */
+      height: auto;    /* Mantiene la relación de aspecto */
+      max-height: 200px; /* Limita la altura máxima del logo */
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Estilo del mensaje de bienvenida */
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    /* Contenedor del formulario de login */
+    .login-container {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #444;
+    }
+
+    /* Estilos para los campos de entrada */
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Estilos para el botón */
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Estilo del mensaje de error */
+    .error {
+      color: red;
+      font-size: 1rem;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 600px) {
+      .logo {
+        max-height: 150px; /* Logo más pequeño en pantallas pequeñas */
+      }
+
+      .welcome-container h1 {
+        font-size: 1.5rem; /* Texto más pequeño en pantallas pequeñas */
+      }
+
+      .login-container {
+        width: 90%;
+        margin: 20px auto;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="welcome-container">
+    <!-- Imagen de logo -->
+    <img src="../public/img/logo cv tools.jpg" alt="Logo CV Tools" class="logo">
+    <!-- Mensaje de bienvenida -->
+    <h1>¡Bienvenido a la App de Registro de Horario!</h1>
+  </div>
+
   <div class="login-container">
-    <h2>Login!</h2>
+    <h2>Login</h2>
     <form id="login-form">
       <input type="text" id="username" placeholder="Usuario" required>
       <input type="password" id="password" placeholder="Contraseña" required>
@@ -16,6 +114,7 @@
     </form>
     <p id="error-message" class="error"></p>
   </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
