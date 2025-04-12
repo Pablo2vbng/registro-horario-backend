@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Registros</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Panel de Administración</h1>
-        
-        <h2>Agregar Nuevo Empleado</h2>
-        <form id="addEmployeeForm" class="registro-form">
-            <div class="form-group">
-                <label for="empName">Nombre:</label>
-                <input type="text" id="empName" required>
-            </div>
-            <div class="form-group">
-                <label for="empUser">Usuario:</label>
-                <input type="text" id="empUser" required>
-            </div>
-            <div class="form-group">
-                <label for="empPass">Contraseña:</label>
-                <input type="password" id="empPass" required>
-            </div>
-            <button type="submit">Agregar Empleado</button>
-        </form>
-        
-        <h2>Lista de Empleados</h2>
-        <div id="employeesList" class="registros-list">
-            <!-- Los empleados se cargarán aquí -->
-        </div>
+  <div class="container">
+    <h1>Registros de Entrada y Salida</h1>
+    
+    <div>
+      <button id="diaButton">Hoy</button>
+      <button id="semanaButton">Semana</button>
+      <button id="mesButton">Mes</button>
     </div>
-    <script src="js/admin.js"></script>
+
+    <div id="registros">
+      <h3>Registros:</h3>
+      <table id="registrosTable">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Fecha de Entrada</th>
+            <th>Fecha de Salida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se insertarán los registros -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
 </body>
 </html>
